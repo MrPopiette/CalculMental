@@ -139,10 +139,18 @@ public class Expression {
             Operateur ope = new Operateur(true);
             expr.add(ope.getAffichageOperateur());
             if (!(ope.getAffichageOperateur() == "/" && ope.OperationUnaire(result.lastIndexOf(result)) == 0)) {
-                result.add(ope.OperationUnaire(result.lastIndexOf(result)));
-                result.remove(result.size() - 2);
+
+                result.add(ope.OperationBinaire(result.lastIndexOf(result), result.get(result.size()-2)));
+                result.remove(result.size() - 1);
+                result.remove(result.size() - 1);
             }
         }
     }
 }
 
+
+/**
+ * 157
+ * 101
+ * 56
+ */

@@ -1,7 +1,5 @@
 package controller;
 
-import bo.User;
-import com.mysql.cj.log.Log;
 import model.LoginBean;
 
 import javax.servlet.ServletException;
@@ -12,7 +10,7 @@ import java.io.IOException;
 @WebServlet (name = "loginController", urlPatterns = {"/login"} )
 public class LoginController extends HttpServlet {
 
-    private static final String PAGE_LOGIN = "jsp/login.jsp";
+    private static final String PAGE_LOGIN = "/WEB-INF/jsp/login.jsp";
     private static final String PATH_HOME_JSP = "/index.jsp";
 
     @Override

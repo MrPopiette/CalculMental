@@ -140,6 +140,12 @@ public class Expression {
             expr.add(ope.getAffichageOperateur());
             if (!(ope.getAffichageOperateur() == "/" && ope.OperationUnaire(result.lastIndexOf(result)) == 0)) {
 
+                /*
+                157  <=
+                101 ( size - 1 )
+                56  ( size - 1 )
+                 */
+
                 result.add(ope.OperationBinaire(result.lastIndexOf(result), result.get(result.size()-2)));
                 result.remove(result.size() - 1);
                 result.remove(result.size() - 1);
@@ -148,9 +154,3 @@ public class Expression {
     }
 }
 
-
-/**
- * 157
- * 101
- * 56
- */

@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class LoginBean implements Serializable {
 
     private static final String FORM_FIELD_LOGIN = "form-login";
-    private static final String FORM_FIELD_PWD = "form-pwd";
+    private static final String FORM_FIELD_PWD = "form-password";
     public static final String ATT_AUTH_SESSION = "isConnected";
 
     private String login;
@@ -43,6 +43,12 @@ public class LoginBean implements Serializable {
             System.out.println(e.getMessage());
             System.out.println("Connexion à la base de données échouée");
         }
+    }
+
+    public boolean isConnected(HttpServletRequest request){
+        HttpSession session =  request.getSession();
+        User connectedUser = (User) session.getAttribute(ATT_AUTH_SESSION);
+        return connectedUser != null;
     }
 
     public String getLogin() {

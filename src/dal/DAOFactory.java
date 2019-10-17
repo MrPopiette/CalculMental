@@ -13,7 +13,7 @@ public class DAOFactory {
 
 
     public static void init(ServletContext context) throws ClassNotFoundException {
-
+        System.out.println("1");
         mode = context.getInitParameter("DS_MODE");
         switch (mode) {
             case "JDBC":
@@ -30,11 +30,11 @@ public class DAOFactory {
 
     public static IDAO<User> getUserDAO() {
         IDAO<User> dao;
+        System.out.println(dbUrl);
         switch (mode) {
             case "JDBC":
                 dao = new UserDAO(dbUrl, dbLogin, dbPwd);
                 break;
-            case "JPA":
             default:
                 //TODO
                 dao = null;

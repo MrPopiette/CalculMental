@@ -30,7 +30,9 @@ public class Expression {
     }
 
     public double getRandomMembreCalcul() {
-        double x = Math.random();
+        int min = -100;
+        int max = 100;
+        double x = (Math.random() * ((max - min) + 1)) + min;
         return x;
     }
 
@@ -151,6 +153,7 @@ public class Expression {
                 result.remove(result.size() - 1);
             }
         }
+        this.resultat = result.get(0);
     }
 }
 

@@ -35,7 +35,7 @@ public class Operateur implements Serializable {
         int min = 0;
         int max = opeSigne.size();
         Random r = new Random();
-        int operateurChoisi = r.nextInt((max - min) + 1) + min;
+        int operateurChoisi = r.nextInt((max - min)) + min;
         this.operateur = opeSigne.get(operateurChoisi);
         this.affichageOperateur = opeSigne.get(operateurChoisi);
     }
@@ -82,7 +82,7 @@ public class Operateur implements Serializable {
             int min = 0;
             int max = opeSigne.size();
             Random r = new Random();
-            int operateurChoisi = r.nextInt((max - min) + 1) + min;
+            int operateurChoisi = r.nextInt((max - min)) + min;
             this.operateur = opeSigne.get(operateurChoisi);
             this.typeOperateur = true;
             this.affichageOperateur = opeSigne.get(operateurChoisi);

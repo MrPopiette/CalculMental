@@ -21,6 +21,7 @@ public class ScoreDAO extends  DataAccessObjectJDBC<Score>{
                 while(rs.next()){
                     score = new Score();
                     score.setValue(rs.getInt("value"));
+                    score.setIdUser(rs.getInt("id_user"));
                     listScores.add(score);
                 }
             }

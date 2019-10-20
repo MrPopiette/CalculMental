@@ -11,12 +11,6 @@ public class QuestionnaireBean implements Serializable {
     private List<Expression> listeExpressions;
     private Score score;
 
-
-
-
-
-
-
     public QuestionnaireBean() {}
 
     public List<Expression> getListeExpressions() {

@@ -14,7 +14,6 @@ public class DAOFactory {
 
 
     public static void init(ServletContext context) throws ClassNotFoundException {
-        System.out.println("1");
         mode = context.getInitParameter("DS_MODE");
         switch (mode) {
             case "JDBC":

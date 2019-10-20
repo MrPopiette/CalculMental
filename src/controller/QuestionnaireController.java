@@ -1,5 +1,6 @@
 package controller;
 
+import bo.Questionnaire;
 import model.LoginBean;
 import model.QuestionnaireBean;
 
@@ -21,10 +22,16 @@ public class QuestionnaireController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         QuestionnaireBean modelQuestionnaire = new QuestionnaireBean();
+
+
         LoginBean modelLogin = new LoginBean();
         if(modelLogin.isConnected(request)){
+            Questionnaire questionnaire = new Questionnaire();
+            if(request.getParameter("done") == "true"){
+                response.sendRedirect(request.getContextPath() + PATH_RESULTAT_JSP);
+            }
+            request.setAttribute("questionnaire", questionnaire);
             request.getRequestDispatcher(PAGE_QUESTIONNAIRE).forward(request, response);
-            //response.sendRedirect(request.getContextPath() + PAGE_QUESTIONNAIRE);
         } else{
             request.getRequestDispatcher(PAGE_LOGIN).forward(request, response);
         }

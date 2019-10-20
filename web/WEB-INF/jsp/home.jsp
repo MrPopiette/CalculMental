@@ -11,12 +11,16 @@
     <title>Questionnaire</title>
 </head>
 <body>
+<h1>Meilleurs scores : </h1>
+<ul>
 <c:forEach var="score" items="${ homeBean.listScores }" varStatus="status">
-    <tr>
-        <td>${score.value}</td>
-    </tr>
+    <li>
+        <td>Numéro d'utilisateur : ${score.idUser}</td>
+        <br>
+        <td>Score : ${score.value}</td>
+    </li>
 </c:forEach>
-
+</ul>
 <form method="POST" action="questionnaire">
     <button class="button expanded">Nouveau Questionnaire</button>
 </form>

@@ -13,30 +13,24 @@
 </head>
 <body>
 
-<form>
-    <% for (int i = 0; i < 10; i += 1) { %>
-
+<form method="POST" action="questionnaire">
     <ul>
+        <c:forEach var="question" items="${ questionnaire.listeExpressions }" varStatus="status">
         <li>
             <div class="questionnaire_display">
-                <h1> Question n° ${i} </h1>
-                <h2>
-
-                </h2>
+                <h4>${ question.expression }</h4>
+            </div>
+            <div>
+                <input type="text" placeholder="Reponse" name="${ status.index }" value="" required>
             </div>
         </li>
-        <li>
-            <div class="questionnaire_input">
-                <input type="number" required class="questionnaire_input" value=""/>
-            </div>
-        </li>
+        </c:forEach>
     </ul>
 
-    <% } %>
-
-    <div class="questionnaire_submit">
-        <button type="submit"></button>
-    </div>
+    <input type="hidden" name="done" value="true">
+<div class="questionnaire_submit">
+    <button type="submit">Test</button>
+</div>
 </form>
 
 

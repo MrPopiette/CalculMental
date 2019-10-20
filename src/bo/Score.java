@@ -4,6 +4,16 @@ import java.util.Date;
 
 public class Score {
 
+    private int idUser;
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
     private int value;
     private Date date;
 

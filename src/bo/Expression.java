@@ -9,7 +9,16 @@ public class Expression {
 
     private double[] membreCalcul;
     private Operateur operateur;
-    private String expression;
+    public String expression;
+
+    public double getResultat() {
+        return resultat;
+    }
+
+    public String getExpression() {
+        return expression;
+    }
+
     private double resultat;
 
 
@@ -48,6 +57,8 @@ public class Expression {
         return tableauMembres;
     }
 
+
+
     // TODO Utiliser une pile pour obtenir le resultat
 
     public Expression() {
@@ -64,7 +75,7 @@ public class Expression {
         int nbreMembre = this.membreCalcul.length;
 
         for (double membre : this.membreCalcul) {
-            switch (expr.size()) {
+            switch (result.size()) {
                 case 1:
                     min = 0;
                     max = 1;
@@ -77,10 +88,11 @@ public class Expression {
                         // Ajout operateur unaire puis nombre
                         Operateur ope = new Operateur(false);
                         expr.add(ope.getAffichageOperateur());
-                        while ((ope.getAffichageOperateur() == "inv" && result.lastIndexOf(result) == 0) || (ope.getAffichageOperateur() == "rac" && result.lastIndexOf(result) < 0)) {
+                        membre = getRandomMembreCalcul();
+                        while ((ope.getAffichageOperateur() == "inv" && membre == 0) || (ope.getAffichageOperateur() == "rac" && membre < 0)) {
                             membre = getRandomMembreCalcul();
                         }
-                        result.add(ope.OperationUnaire(result.lastIndexOf(result)));
+                        result.add(ope.OperationUnaire(result.get(result.size()-1)));
                         result.remove(result.size() - 2);
                     }
                     result.add(membre);
@@ -99,16 +111,17 @@ public class Expression {
                         while (ope.getAffichageOperateur() == "/" && membre == 0) {
                             membre = getRandomMembreCalcul();
                         }
-                        result.add(ope.OperationBinaire(result.lastIndexOf(result), membre));
+                        result.add(ope.OperationBinaire(result.get(result.size()-1), membre));
                         result.remove(result.size() - 2);
                     } else {
                         // Ajout operateur unaire
                         Operateur ope = new Operateur(false);
                         expr.add(ope.getAffichageOperateur());
-                        while ((ope.getAffichageOperateur() == "inv" && result.lastIndexOf(result) == 0) || (ope.getAffichageOperateur() == "rac" && result.lastIndexOf(result) < 0)) {
+                        membre = getRandomMembreCalcul();
+                        while ((ope.getAffichageOperateur() == "inv" && membre == 0) || (ope.getAffichageOperateur() == "rac" && membre < 0)) {
                             membre = getRandomMembreCalcul();
                         }
-                        result.add(ope.OperationUnaire(result.lastIndexOf(result)));
+                        result.add(ope.OperationUnaire(result.get(result.size()-1)));
                         result.remove(result.size() - 2);
                     }
                     result.add(membre);
@@ -123,7 +136,7 @@ public class Expression {
                         membre = getRandomMembreCalcul();
                     }
 
-                    result.add(ope.OperationBinaire(result.lastIndexOf(result), membre));
+                    result.add(ope.OperationBinaire(result.get(result.size()-1), membre));
                     result.remove(result.size() - 2);
                     result.add(membre);
                     expr.add(Double.toString(membre));
@@ -136,11 +149,11 @@ public class Expression {
             }
         }
 
-        while (expr.size() != 1) {
+        while (result.size() != 1) {
             // check pour reduire la taille avec des ajouts d'opérateurs
             Operateur ope = new Operateur(true);
             expr.add(ope.getAffichageOperateur());
-            if (!(ope.getAffichageOperateur() == "/" && ope.OperationUnaire(result.lastIndexOf(result)) == 0)) {
+            if (!(ope.getAffichageOperateur() == "/" && ope.OperationUnaire(result.get(result.size()-1)) == 0)) {
 
                 /*
                 157  <=
@@ -148,12 +161,13 @@ public class Expression {
                 56  ( size - 1 )
                  */
 
-                result.add(ope.OperationBinaire(result.lastIndexOf(result), result.get(result.size()-2)));
+                result.add(ope.OperationBinaire(result.get(result.size()-1), result.get(result.size()-2)));
                 result.remove(result.size() - 1);
                 result.remove(result.size() - 1);
             }
         }
         this.resultat = result.get(0);
+        this.expression = expr.toString();
     }
 }
 

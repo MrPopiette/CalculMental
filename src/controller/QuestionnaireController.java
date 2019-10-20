@@ -1,5 +1,6 @@
 package controller;
 
+import bo.Questionnaire;
 import model.LoginBean;
 import model.QuestionnaireBean;
 
@@ -13,9 +14,14 @@ import java.io.IOException;
 @WebServlet (name = "questionnaireController", urlPatterns = {"/questionnaire"})
 public class QuestionnaireController extends HttpServlet {
 
-    private static final String PAGE_QUESTIONNAIRE = "jsp/questionnaire.jsp";
-    private static final String PATH_RESULTAT_JSP = "jsp/resultat.jsp";
+    private static final String PAGE_QUESTIONNAIRE = "/questionnaire.jsp";
+    private static final String PATH_RESULTAT_JSP = "/resultat.jsp";
     private static final String PAGE_LOGIN = "jsp/login.jsp";
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

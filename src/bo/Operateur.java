@@ -91,37 +91,80 @@ public class Operateur implements Serializable {
         }
     }
 
-
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public double additionner(double x, double y){
         x = x + y;
         return x;
     }
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public double soustraire(double x, double y){
         x = x - y;
         return x;
     }
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public double multiplier(double x, double y){
         x = x * y;
         return x;
     }
+
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public double diviser(double x, double y){
         if(y == 0){
-//TODO A CHECK
             return 0;
         } else {
             x = x/y;
         }
         return x;
     }
+
+    /**
+     *
+     * @param x
+     * @return
+     */
     public double inverser(double x){
         x = 1/x;
         return x;
     }
+
+    /**
+     *
+     * @param x
+     * @return
+     */
     public double racineCarre(double x){
         Math.sqrt(x);
         return x;
     }
 
+    /**
+     *
+     * @param x
+     * @return
+     */
     public double OperationUnaire(double x){
         switch (this.affichageOperateur){
             case "rac":
@@ -137,6 +180,13 @@ public class Operateur implements Serializable {
         }
         return x;
     }
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public double OperationBinaire(double x, double y){
         switch (this.affichageOperateur){
             case "/":

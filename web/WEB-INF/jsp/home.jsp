@@ -16,5 +16,10 @@
         <td>${score.value}</td>
     </tr>
 </c:forEach>
+
+<form method="POST" action="questionnaire">
+    <button class="button expanded">Nouveau Questionnaire</button>
+</form>
+
 </body>
 </html>

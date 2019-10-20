@@ -151,6 +151,7 @@ public class Expression {
                 result.remove(result.size() - 1);
             }
         }
+        this.resultat = result.get(0);
     }
 }
 

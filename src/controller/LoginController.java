@@ -1,7 +1,6 @@
 package controller;
 
-import bo.User;
-import com.mysql.cj.log.Log;
+
 import model.LoginBean;
 
 import javax.servlet.ServletException;

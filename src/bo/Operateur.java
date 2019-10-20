@@ -9,15 +9,14 @@ public class Operateur implements Serializable {
 
     private String operateur;
     private String affichageOperateur;
-
     /**
      * @True = Binaire
      * @False = Unaire
      */
     private boolean typeOperateur;
 
-    public Operateur() {
 
+    public Operateur() {
     }
 
     public Operateur(boolean typeOperateur){

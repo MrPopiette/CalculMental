@@ -13,9 +13,9 @@ import java.io.IOException;
 @WebServlet (name = "questionnaireController", urlPatterns = {"/questionnaire"})
 public class QuestionnaireController extends HttpServlet {
 
-    private static final String PAGE_QUESTIONNAIRE = "jsp/questionnaire.jsp";
-    private static final String PATH_RESULTAT_JSP = "jsp/resultat.jsp";
-    private static final String PAGE_LOGIN = "jsp/login.jsp";
+    private static final String PAGE_QUESTIONNAIRE = "/WEB-INF/jsp/questionnaire.jsp";
+    private static final String PATH_RESULTAT_JSP = "/WEB-INF/jsp/resultat.jsp";
+    private static final String PAGE_LOGIN = "/login";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,7 +23,8 @@ public class QuestionnaireController extends HttpServlet {
         QuestionnaireBean modelQuestionnaire = new QuestionnaireBean();
         LoginBean modelLogin = new LoginBean();
         if(modelLogin.isConnected(request)){
-            response.sendRedirect(request.getContextPath() + PAGE_QUESTIONNAIRE);
+            request.getRequestDispatcher(PAGE_QUESTIONNAIRE).forward(request, response);
+            //response.sendRedirect(request.getContextPath() + PAGE_QUESTIONNAIRE);
         } else{
             request.getRequestDispatcher(PAGE_LOGIN).forward(request, response);
         }

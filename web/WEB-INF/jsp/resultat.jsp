@@ -36,7 +36,7 @@ Maxime et Sylouan
       :fMM     d$Fd$$R$$F
       4M$P .$$*.J*$$**
       M4$> '$>dRdF
-      MMM\   *L*B.         Rosemary Lyndall Wemm
+      MMM\   *L*B.
      :$$F     ?k"Re
    .$$P\        **'$$B...
 :e$F"               '""""

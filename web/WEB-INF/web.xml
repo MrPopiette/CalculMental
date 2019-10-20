@@ -27,10 +27,19 @@
     </context-param>
 
     <session-config>
+
         <session-timeout>30</session-timeout>
     </session-config>
 
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <include-prelude>/WEB-INF/jsp/tag_libs.jsp</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+
     <welcome-file-list>
-        <welcome-file>index</welcome-file>
+        <welcome-file>login</welcome-file>
     </welcome-file-list>
 </web-app>

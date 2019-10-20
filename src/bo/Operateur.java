@@ -107,7 +107,7 @@ public class Operateur implements Serializable {
     }
     public double diviser(double x, double y){
         if(y == 0){
-//TODO A CHECK
+
             return 0;
         } else {
             x = x/y;

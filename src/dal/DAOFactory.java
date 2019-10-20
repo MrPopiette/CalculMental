@@ -1,6 +1,7 @@
 package dal;
 
 import bo.User;
+import bo.Score;
 
 import javax.servlet.ServletContext;
 
@@ -26,6 +27,19 @@ public class DAOFactory {
             default:
                 //TODO
         }
+    }
+
+    public static IDAO<Score> getScoreDAO(){
+        IDAO<Score> dao;
+        switch (mode) {
+            case "JDBC":
+                dao = new ScoreDAO(dbUrl, dbLogin, dbPwd);
+                break;
+            default:
+                //TODO
+                dao = null;
+        }
+        return dao;
     }
 
     public static IDAO<User> getUserDAO() {
